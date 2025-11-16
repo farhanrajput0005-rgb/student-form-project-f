@@ -1,49 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Student Form</title>
-<style>
-body {
-    background: #111;
-    color: white;
-    font-family: Arial;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Styled Student Form</title>
 
-form {
-    background: #222;
-    padding: 25px;
-    border-radius: 10px;
-    width: 350px;
-}
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-input, button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(120deg, #0a0f24, #111a40, #162456);
+            height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: #fff;
+        }
 
-button {
-    background: teal;
-    color: white;
-    cursor: pointer;
-}
-</style>
+        /* Background Animation */
+        .bg-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.15);
+            animation: float 12s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-80px) scale(1.2); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        .container {
+            width: 420px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 700;
+            color: #00eaff;
+            text-shadow: 0 0 12px #00eaff;
+        }
+
+        label {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 18px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: #00eaff;
+            color: #000;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00c8d6;
+            transform: scale(1.05);
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #ccc;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<form>
-    <h2>Student Form</h2>
-    <input type="text" placeholder="Name" required>
-    <input type="text" placeholder="Roll Number (full format)" required>
-    <input type="date" required>
-    <input type="text" placeholder="Hobby" required>
-    <button>Submit</button>
-</form>
+<div class="bg-animation">
+    <!-- Floating circles -->
+    <div class="circle" style="width:140px; height:140px; top:10%; left:8%; animation-duration: 10s;"></div>
+    <div class="circle" style="width:100px; height:100px; top:60%; right:10%; animation-duration: 14s;"></div>
+    <div class="circle" style="width:160px; height:160px; bottom:15%; left:30%; animation-duration: 18s;"></div>
+</div>
+
+<div class="container">
+    <h2>AI Enhanced Student Form</h2>
+
+    <form action="students.php" method="POST">
+        <label>Full Name</label>
+        <input type="text" name="name" required />
+
+        <label>Roll Number</label>
+        <input type="text" name="roll" required />
+
+        <label>Date of Birth</label>
+        <input type="date" name="dob" required />
+
+        <label>Hobby</label>
+        <input type="text" name="hobby" required />
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="note">
+        Form posts to <b>students.php</b>. Make sure PHP + MySQL are available on the host you will use.
+    </div>
+</div>
 
 </body>
 </html>
+
+<!-- Footer Note -->
+<footer style="margin-top:40px; text-align:center; color:#aaa; font-size:14px;">
+    Form posts to <strong>students.php</strong>. Make sure PHP + MySQL are available on the host you will use.
+</footer>
