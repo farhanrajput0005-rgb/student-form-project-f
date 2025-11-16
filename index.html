@@ -1,154 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Styled Student Form</title>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Enhanced Student Form</title>
 
     <style>
+        /* =======================
+           BACKGROUND ANIMATION
+        ========================== */
         body {
             margin: 0;
             font-family: "Poppins", sans-serif;
-            background: linear-gradient(120deg, #0a0f24, #111a40, #162456);
+            background: radial-gradient(circle at top, #001f3f, #000814);
             height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            color: #fff;
-        }
-
-        /* Background Animation */
-        .bg-animation {
-            position: absolute;
-            width: 100%;
-            height: 100%;
             overflow: hidden;
-            z-index: -1;
-            top: 0;
-            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .circle {
+        .bubble {
             position: absolute;
             border-radius: 50%;
-            background: rgba(0, 255, 255, 0.15);
-            animation: float 12s infinite ease-in-out;
+            background: rgba(0, 150, 255, 0.2);
+            animation: float 10s infinite ease-in-out;
         }
 
         @keyframes float {
-            0% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-80px) scale(1.2); }
-            100% { transform: translateY(0) scale(1); }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-40px); }
+            100% { transform: translateY(0px); }
         }
 
-        .container {
-            width: 420px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
+        /* =======================
+           FORM CONTAINER
+        ========================== */
+        .form-container {
+            width: 380px;
             padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
-            animation: fadeIn 1.2s ease-in-out;
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.5);
+            animation: glowPulse 2.5s infinite alternate;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes glowPulse {
+            from { box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.2); }
+            to { box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.6); }
         }
 
+        /* =======================
+           HEADING
+        ========================== */
         h2 {
             text-align: center;
-            margin-bottom: 25px;
-            font-weight: 700;
             color: #00eaff;
             text-shadow: 0 0 12px #00eaff;
         }
 
+        /* =======================
+           INPUT FIELDS
+        ========================== */
         label {
-            font-size: 15px;
-            font-weight: 600;
+            color: #e0e0e0;
+            font-size: 14px;
+            display: block;
+            margin-top: 12px;
         }
 
-        input, select {
+        input {
             width: 100%;
-            padding: 12px;
-            margin: 8px 0 18px;
+            padding: 10px;
+            margin-top: 5px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             outline: none;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.12);
             color: white;
             font-size: 14px;
         }
 
+        /* =======================
+           SUBMIT BUTTON
+        ========================== */
         button {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
+            margin-top: 18px;
             border: none;
-            background: #00eaff;
-            color: #000;
-            font-size: 16px;
-            font-weight: 700;
             border-radius: 10px;
+            background: #00eaff;
+            color: #003b46;
+            font-size: 16px;
             cursor: pointer;
+            font-weight: bold;
             transition: 0.3s;
         }
 
         button:hover {
-            background: #00c8d6;
-            transform: scale(1.05);
+            background: #00bcd4;
         }
 
+        /* =======================
+           FOOTER NOTE
+        ========================== */
         .note {
-            margin-top: 15px;
-            font-size: 12px;
-            color: #ccc;
             text-align: center;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #cccccc;
         }
     </style>
 </head>
+
 <body>
 
-<div class="bg-animation">
-    <!-- Floating circles -->
-    <div class="circle" style="width:140px; height:140px; top:10%; left:8%; animation-duration: 10s;"></div>
-    <div class="circle" style="width:100px; height:100px; top:60%; right:10%; animation-duration: 14s;"></div>
-    <div class="circle" style="width:160px; height:160px; bottom:15%; left:30%; animation-duration: 18s;"></div>
-</div>
+    <!-- Background floating bubbles -->
+    <div class="bubble" style="width:120px; height:120px; top:10%; left:10%;"></div>
+    <div class="bubble" style="width:90px; height:90px; bottom:15%; right:15%; animation-duration:12s;"></div>
 
-<div class="container">
-    <h2>AI Enhanced Student Form</h2>
+    <!-- FORM BOX -->
+    <div class="form-container">
+        <h2>AI Enhanced Student Form</h2>
 
-    <form action="students.php" method="POST">
-        <label>Full Name</label>
-        <input type="text" name="name" required />
+        <form action="#" method="POST">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" required>
 
-        <label>Roll Number</label>
-        <input type="text" name="roll" required />
+            <label>Roll Number</label>
+            <input type="text" placeholder="Enter roll number" required>
 
-        <label>Date of Birth</label>
-        <input type="date" name="dob" required />
+            <label>Date of Birth</label>
+            <input type="date" required>
 
-        <label>Hobby</label>
-        <input type="text" name="hobby" required />
+            <label>Hobby</label>
+            <input type="text" placeholder="Enter your hobby" required>
 
-        <button type="submit">Submit</button>
-    </form>
+            <button type="submit">Submit</button>
 
-    <div class="note">
-        Form posts to <b>students.php</b>. Make sure PHP + MySQL are available on the host you will use.
+            <!-- ONLY ONE FOOTER NOTE (Corrected) -->
+            <p class="note">
+                Form posts to <strong>students.php</strong>. Make sure PHP + MySQL are available on the host you will use.
+            </p>
+        </form>
     </div>
-</div>
 
 </body>
 </html>
-
-<!-- Footer Note -->
-<footer style="margin-top:40px; text-align:center; color:#aaa; font-size:14px;">
-    Form posts to <strong>students.php</strong>. Make sure PHP + MySQL are available on the host you will use.
-</footer>
